@@ -1,0 +1,54 @@
+ int n1, n2, n3, r1, r2, r3;
+            string opc;
+
+            do {
+            Console.WriteLine("--------------MEGA SENA-------------");
+
+            Console.Write("Entre com o primeiro numero (entre 1 e 60).: ");
+            n1 = int.Parse(Console.ReadLine());
+
+            do {
+            Console.Write("Entre com o segundo numero (entre 1 e 60, diferente do 1º).: ");
+            n2 = int.Parse(Console.ReadLine());
+            } while (n2 == n1);
+
+            do {
+            Console.Write("Entre com o terceiro numero (entre 1 e 60, diferente do 1º e do 2º).: ");
+            n3 = int.Parse(Console.ReadLine());
+            } while (n3 == n2 || n3 == n1);
+
+            Random r = new Random();
+
+            r1 = r.Next(1,5);
+            do {
+            r2 = r.Next(1,5);
+            }while (r2 == r1);
+            do {
+            r3 = r.Next(1,5);
+            }while (r3 == r1 || r3 == r2);
+
+            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("Os numeros sorteados são: "+ r1+", " + r2+", " + r3);
+            Console.WriteLine("");
+            Console.WriteLine("Os numeros que você escolheu são: " + n1 + ", " + n2 + ", " + n3);
+
+            if (r1 == n1 || r2 == n1 || r3 == n3
+                && r1 == n2 || r2 == n2 || r3 == n2
+                && r1 == n3 || r2 == n3 || r3 == n1)
+            {
+
+                Console.WriteLine("");
+                Console.Write("!!!!!VOCÊ É O MAIS NOVO MILIONARIO!!!!!!");
+
+            }
+            else {
+
+                Console.WriteLine("");
+                Console.WriteLine("NÂO FOI DESSA VEZ CONTINUE TENTANDO =/");
+            }
+
+            Console.WriteLine("");
+            Console.Write("Deseja continuar? (S/N): ");
+                opc = Console.ReadLine();
+            }while (opc == "S" || opc == "s");
+            Console.ReadKey();
